@@ -6,8 +6,6 @@ import { DatabaseConfigService } from './database.config.service';
 @Module({
   imports: [
     NestConfigModule.forRoot({
-      cache: true,
-      isGlobal: true,
       envFilePath: ['src/configs/.env'],
     }),
   ],
