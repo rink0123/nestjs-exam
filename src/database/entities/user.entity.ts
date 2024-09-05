@@ -7,22 +7,31 @@ import {
 } from 'typeorm';
 
 @Entity('users')
-export class User {
+export class UserEntity {
   @PrimaryGeneratedColumn()
-  seq: number;
+  id: number;
 
   @Column({ unique: true, comment: '유저 아이디' })
-  id: string;
+  email: string;
 
   @Column({ comment: '유저 비밀번호' })
   password: string;
 
+  @Column({ comment: '유저 핸드폰' })
+  phone: string;
+
+  @Column({ type: 'date', comment: '생년월일' })
+  birthday: Date;
+
+  @Column({ comment: '유저 이름' })
+  name: string;
+
   @Column({ comment: '유저 닉네임' })
   nickname: string;
 
-  @CreateDateColumn({ name: 'created_at', comment: '생성일' })
+  @CreateDateColumn({ comment: '생성일' })
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', comment: '수정일' })
+  @UpdateDateColumn({ comment: '수정일' })
   updatedAt: Date;
 }
